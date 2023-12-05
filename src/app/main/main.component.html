@@ -1,0 +1,12 @@
+<main class="container pt-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8">
+            <app-todo-list [todos]="todos!" (newTodoEventToParent)="editTodo($event)"
+                (deleteTodoEventToParent)="deleteTodo($event)"></app-todo-list>
+        </div>
+        <div class="col-12 col-md-4 order-first order-md-last pb-3 pb-md-0 position-sticky top-0">
+            <app-form-todo [todoEdit]="todoEdit" (updateEventTodo)="updateTodo($event)"
+                (pushEventTodoList)="addTodo($event)"></app-form-todo>
+        </div>
+    </div>
+</main>

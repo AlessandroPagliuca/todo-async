@@ -1,0 +1,13 @@
+<div class="card card-todo mb-3">
+    <div class="card-body">
+        <input type="checkbox" (change)="doneed()">
+        <h5 class="card-title"> {{todo.name | uppercase}} </h5>
+        <p class="card-text"> {{todo.description}} </p>
+    </div>
+    <div class="d-flex justify-content-end align-items-center p-2">
+        <button class="btn btn-primary me-1" (click)="btnEditTodo()">Edit</button>
+        <button class="btn btn-danger" (click)="btnDeleteTodo()" [disabled]="!todo.done">Delete</button>
+        <button class="btn btn-success" (click)="goToDetail(todo.id!)">Info</button>
+
+    </div>
+</div>

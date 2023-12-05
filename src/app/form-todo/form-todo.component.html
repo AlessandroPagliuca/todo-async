@@ -1,0 +1,19 @@
+<form class="form-control position-sticky top-0" [formGroup]="todoForm" (ngSubmit)="onSubmitTodo()">
+    <div class="mb-3 form-floating">
+        <input type="text" class="form-control" id="name" formControlName="name">
+        <label for="name" class="col-form-label">Name*</label>
+        <label class="col-form-label"
+            *ngIf="todoForm.get('name')?.touched && todoForm.get('name')?.hasError('required')" class="text-danger">
+            Campo nome obbligatorio
+        </label>
+    </div>
+    <div class="mb-3 form-floating">
+        <textarea name="description" id="description" formControlName="description"
+            class="w-100 form-control"></textarea>
+        <label for="description" class="col-form-label">Description</label>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="todoForm.invalid" *ngIf="!isUpdate"
+        (keyup.enter)="onSubmitTodo()">Submit</button>
+    <button type="button" class="btn btn-outline-primary me-3" (click)="cancelUpdate()" *ngIf="isUpdate">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="updateTodo()" *ngIf="isUpdate">Update</button>
+</form>
